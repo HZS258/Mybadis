@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
 import java.util.Date;
+import java.util.List;
 
 public class UserTest {
 
@@ -23,5 +24,25 @@ public class UserTest {
         //所有的增删改
         sqlSession.commit();
         SqlSessionUtil.closeSqlSession(sqlSession);
+    }
+    @Test
+    public void  test2(){
+        SqlSession sqlSession=SqlSessionUtil.getSqlSession();
+        UserDao dao=sqlSession.getMapper(UserDao.class);
+
+        User user=dao.findById(2);
+        System.out.println(user.getName());
+
+        SqlSessionUtil.closeSqlSession(sqlSession);
+    }
+
+    @Test
+    public  void  test3(){
+        SqlSession sqlSession=SqlSessionUtil.getSqlSession();
+        UserDao dao=sqlSession.getMapper(UserDao.class);
+        List<User> list=dao.findAll();
+        for (User user:list) {
+            System.out.println(user.getName());
+        }
     }
 }
