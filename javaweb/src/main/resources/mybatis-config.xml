@@ -5,7 +5,8 @@
 <configuration>
     <!--配置类型别名的表签-->
     <typeAliases>
-        <typeAlias type="com.mybadis.pojo.User" alias="User"></typeAlias>
+        <!--typeAlias type="com.mybadis.pojo.User" alias="User"></typeAlias-->
+        <typeAlias type="com.mybadis.pojo.Author" alias="Author"></typeAlias>
     </typeAliases>
 
     <environments default="env1">
@@ -22,6 +23,7 @@
 
     <!--指定映射文件位置-->
     <mappers>
-        <mapper resource="mapper/UserMapper.xml"></mapper>
+        <!--mapper resource="mapper/UserMapper.xml"></mapper-->
+        <mapper resource="mapper/AuthorMapper.xml"></mapper>
     </mappers>
 </configuration>
